@@ -7,11 +7,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "book")
+public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // PK
-    private String firstName;
-    private String lastName;
+    private Long id;
+    private String name;
+    private String isbn;
 }
