@@ -1,8 +1,11 @@
 package com.covenant.sprintbootmysql.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,4 +17,7 @@ public class Book {
     private Long id;
     private String name;
     private String isbn;
+    @JsonBackReference
+    @OneToMany(mappedBy = "book",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Lend> lends;
 }
