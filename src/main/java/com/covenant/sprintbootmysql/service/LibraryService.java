@@ -68,6 +68,7 @@ public class LibraryService {
     public Member createMember(MemberCreationRequest request) {
         Member member = new Member();
         BeanUtils.copyProperties(request,member);
+        member.setStatus(MemberStatus.ACTIVE);
         return memberRepository.save(member);
     }
 
