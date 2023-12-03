@@ -23,11 +23,6 @@ public class Member {
     private MemberStatus status;
 
     // 연간관계 주인 : 외래키를 가진쪽 -> 항상 N
-    @ManyToOne
-    @JoinColumn(name = "author_id")
-    @JsonManagedReference // 연간관계 주인 반대
-    private Author author;
-
     @OneToMany(mappedBy = "member",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonBackReference
     private List<Lend> lends;

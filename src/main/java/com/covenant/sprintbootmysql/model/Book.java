@@ -19,10 +19,12 @@ public class Book {
     private Long id;
     private String name;
     private String isbn;
+
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
+
     @JsonBackReference
     @OneToMany(mappedBy = "book",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Lend> lends;
